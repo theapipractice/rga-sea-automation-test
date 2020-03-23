@@ -20,7 +20,7 @@ import java.io.File;
                 "html:target/cucumber-reports/cucumber-pretty",
                 "json:target/cucumber-reports/CucumberTestReport.json",
                 "rerun:target/cucumber-reports/rerun.txt"},
-        plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/FlowStep.html"},
+        plugin = { "com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/rga.html"},
         monochrome = true)
 public class TestRunner {
     private TestNGCucumberRunner testNGCucumberRunner;
@@ -30,7 +30,7 @@ public class TestRunner {
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
     }
 
-    @Test(description="The Api Practice", dataProvider="features")
+    @Test(description="RGA SEA", dataProvider="features")
     public void flowSteps(CucumberFeatureWrapper cFeature) {
         testNGCucumberRunner.runCucumber(cFeature.getCucumberFeature());
     }
