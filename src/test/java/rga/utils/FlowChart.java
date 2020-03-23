@@ -1,14 +1,18 @@
 package rga.utils;
 
+import common.utils.Log;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class FlowChart {
 
-    static StringBuilder htmlStringBuilder = new StringBuilder();;
+    public static String flowChartName = "";
+    public static String featureName = "";
+    static StringBuilder htmlStringBuilder = new StringBuilder();
     static boolean isHeader = false;
     static boolean isFooter = false;
+    static boolean isWrite = false;
     static List<String> list = new ArrayList<>();
     public static StringBuilder addFlowChart(boolean isAdd, String featureName, boolean isLast){
 
@@ -16,7 +20,7 @@ public class FlowChart {
             //define a HTML String Builder
             if (!isHeader) {
                 //append html header and title
-                htmlStringBuilder.append("<html><head> <link rel=\"stylesheet\" href='src/test/resources/css/demo.css'/> <title>Selenium Test </title></head>");
+                htmlStringBuilder.append("<html><head> <link rel=\"stylesheet\" href='css/chart.css'/> <title>Selenium Test </title></head>");
                 htmlStringBuilder.append("<b style=\"color:#35f53b;margin-left: 326px;\">Green</b> is step passed. <b style=\"color:red;\">Red</b> is step failed");
                 htmlStringBuilder.append("<div id=\"flowchart\">");
                 htmlStringBuilder.append("<div class=\"no1\"><a href=\"#\">Start</a></div>");
@@ -49,20 +53,22 @@ public class FlowChart {
             }
 
             if (isLast) {
-                WriteToFile(htmlStringBuilder.toString(), "flowchart.html");
-                htmlStringBuilder = null;
-                list = null;
+                    WriteToFile(htmlStringBuilder.toString(), flowChartName + ".html");
+                    htmlStringBuilder = new StringBuilder();;
+                    list = new ArrayList<>();
+                    isHeader = false;
+                    isFooter = false;
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.error(e.getMessage());
         }
 
         return null;
     }
 
     private static void WriteToFile(String fileContent, String fileName) throws IOException {
-        String projectPath = System.getProperty("user.dir");
-        String tempFile = projectPath + File.separator+fileName;
+        String projectPath = System.getProperty("user.dir") + File.separator + "flowchart" ;
+        String tempFile = projectPath + File.separator + fileName;
         File file = new File(tempFile);
         // if file does exists, then delete and create a new file
         if (file.exists()) {

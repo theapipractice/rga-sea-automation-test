@@ -4,7 +4,6 @@ import com.cucumber.listener.Reporter;
 import cucumber.api.CucumberOptions;
 import cucumber.api.testng.TestNGCucumberRunner;
 import cucumber.api.testng.CucumberFeatureWrapper;
-import rga.utils.FlowChart;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -14,7 +13,7 @@ import java.io.File;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"suite.stepdefs"},
-        tags = {"@MD_Create_Duplicate_New_Model"},
+        tags = {"@Users"},
         format = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",
@@ -51,6 +50,5 @@ public class TestRunner {
         Reporter.setSystemInfo("Maven", "3.5.2");
         Reporter.setSystemInfo("Java Version", "1.8.0_151");
         testNGCucumberRunner.finish();
-        FlowChart.addFlowChart(true, "", true);
     }
 }

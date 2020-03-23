@@ -293,7 +293,7 @@ public class ModelsPage extends BasePage {
         click(saveBtn);
         return modelName;
     }
-    public String addNewModel(String type, String modelName){
+    public String addNewModel(String modelName, String type){
         ModelEntity modelEntity = ModelsProvider.getModelByType(type);
 
         clickCreateButton();

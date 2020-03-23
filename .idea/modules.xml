@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/rga.iml" filepath="$PROJECT_DIR$/rga.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/rga-sea-automation-test.iml" filepath="$PROJECT_DIR$/.idea/rga-sea-automation-test.iml" />
     </modules>
   </component>
 </project>

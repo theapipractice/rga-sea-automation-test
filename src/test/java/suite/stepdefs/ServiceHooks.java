@@ -12,6 +12,7 @@ import com.google.common.io.Files;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import rga.utils.FlowChart;
 
 import java.io.File;
 import java.io.IOException;
@@ -54,9 +55,13 @@ public class ServiceHooks {
 
     @After(order = 1)
     public void afterScenario(Scenario scenario) {
+        String screenshotName = scenario.getName().replaceAll(" ", "_");
         if (scenario.isFailed()) {
-            String screenshotName = scenario.getName().replaceAll(" ", "_");
             try {
+                //draw the flow chart
+                FlowChart.flowChartName = screenshotName;
+                FlowChart.addFlowChart(false, FlowChart.featureName, true);
+
                 //This takes a screenshot from the driver at save it to the specified location
                 File sourcePath = ((TakesScreenshot) WdManager.get()).getScreenshotAs(OutputType.FILE);
 
@@ -69,12 +74,19 @@ public class ServiceHooks {
 
                 //This attach the specified screenshot to the test
                 Reporter.addScreenCaptureFromPath(destinationPath.toString());
+
+                //add result to zalenium
                 Cookie cookie = new Cookie("zaleniumTestPassed", "false");
                 WdManager.get().manage().addCookie(cookie);
             } catch (IOException e) {
                 Log.error(e.getMessage());
             }
         }else {
+            //draw the flow chart
+            FlowChart.flowChartName = screenshotName;
+            FlowChart.addFlowChart(true, "", true);
+
+            //add result to zalenium
             Cookie cookie = new Cookie("zaleniumTestPassed", "true");
             WdManager.get().manage().addCookie(cookie);
         }

@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="rga" />
+        <module name="rga-sea-automation-test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="rga" target="8" />
+      <module name="rga-sea-automation-test" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

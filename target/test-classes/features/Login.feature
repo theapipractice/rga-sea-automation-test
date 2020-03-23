@@ -11,6 +11,4 @@ Scenario Outline: LG_Login
 
 	Examples: 
 	| testing               | username                  | password             | result   |
-	| valid combination     | dinhquyenonline@gmail.com | 0906879564@Qt        | passed   |
-	| invalid combination 1 | test                      | test                 | failed   |
-	| special characters    | $$$                       | SuperSecretPassword! | failed   |
+

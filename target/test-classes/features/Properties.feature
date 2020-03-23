@@ -11,10 +11,7 @@ Feature: Properties
 	And   Verify result "<expected>"
 	Examples: 
 	| testing | username                   | password      | searchValue    | expected  | result   |
-	| valid   | dinhquyenonline1@gmail.com | 0906879564@Qt | AATesting      | AATesting | passed   |
-	| invalid | dinhquyenonline1@gmail.com | 0906879564@Qt | invalidProperty|           | passed   |
-	| valid   | dinhquyenonline1@gmail.com | 0906879564@Qt | Testing        | AATesting | passed   |
-	| valid   | dinhquyenonline1@gmail.com | 0906879564@Qt | AAT            | AATesting | passed   |
+
 
 	@PP_Clear_Search_Properties
 	Scenario Outline: PP_Clear_Search_Properties
@@ -26,7 +23,7 @@ Feature: Properties
 	And   Verify List Number Of first pageVa
 	Examples: 
 	| testing | username                   | password      | searchValue    | expected  | result |
-	| valid   | dinhquyenonline1@gmail.com | 0906879564@Qt | AATesting      | AATesting | passed |
+
 
 	@PP_Create_Valid_New_Properties
 	Scenario Outline: PP_Create_Valid_New_Properties
@@ -39,7 +36,7 @@ Feature: Properties
 
 	Examples: 
 	| testing | username                   | password      | searchValue    | expected  | result |
-	| valid   | dinhquyenonline1@gmail.com | 0906879564@Qt | AATesting      | AATesting | passed |
+
 
 	@PP_Create_Invalid_New_Properties
 	Scenario Outline: PP_Create_Invalid_New_Properties
@@ -50,8 +47,7 @@ Feature: Properties
 	
 	Examples: 
 	| testing     | username                   | password      | propertyName    | errorMessage                                 | result |
-	| duplicate   | dinhquyenonline1@gmail.com | 0906879564@Qt | address         | A model with name address already exists     | passed |
-	| empty       | dinhquyenonline1@gmail.com | 0906879564@Qt |                 | Property Name is a required field            | passed |
+
 
     @PP_Edit_Valid_New_Properties
 	Scenario Outline: PP_Edit_Valid_New_Properties
@@ -65,6 +61,3 @@ Feature: Properties
 
 	Examples: 
 	| testing | username                   | password      | searchValue    | expected  |type    | result  |
-	| valid   | dinhquyenonline1@gmail.com | 0906879564@Qt | AATesting      | AATesting |String  | passed  |
-	| valid   | dinhquyenonline1@gmail.com | 0906879564@Qt | AATesting      | AATesting |Integer  | passed  |
-	| valid   | dinhquyenonline1@gmail.com | 0906879564@Qt | AATesting      | AATesting |Number  | passed  |

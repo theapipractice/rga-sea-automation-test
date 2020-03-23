@@ -28,7 +28,7 @@ public class ModelSteps {
 
     @Then("^Add New Model With Existing Name \"([^\"]*)\" and Type Of Model \"([^\"]*)\"$")
     public void addNewModelWithExistingNameAndTypeOfModel(String modelName, String type) throws Throwable {
-        ModelsPage.getInstance().addNewModel(type, modelName);
+        ModelsPage.getInstance().addNewModel(modelName, type);
         getScenarioContext().setContext(Context.MODEL_NAME, modelName);
     }
 }
